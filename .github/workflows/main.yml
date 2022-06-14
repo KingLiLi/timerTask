@@ -11,11 +11,11 @@ jobs:
     steps:
       - name: '导出代码'
         uses: actions/checkout@v1
-      - name: '获取天气脚本'
+      - name: '执行脚本'
         run: bash ./weather.sh
       - name: 'Get Date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
-      - name: '发送邮件1'
+      - name: '发送邮件'
         uses: dawidd6/action-send-mail@master
         with:
           server_address: smtp.163.com
@@ -23,7 +23,7 @@ jobs:
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: Shanghai Weather Report (${{env.REPORT_DATE}})
-          body: file://result.html
+          body: '推送成功'
           to: 673658660@qq.com
           from: GitHub Actions
-          content_type: text/html
+          content_type: text/plain
