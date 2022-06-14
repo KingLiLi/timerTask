@@ -26,4 +26,4 @@ jobs:
           body: 'hello 宝贝'
           to: 673658660@qq.com
           from: GitHub Actions
-          content_type: text/html
+          content_type: text/plain
